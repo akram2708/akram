@@ -14,6 +14,11 @@ public class VectorDemo {
 			System.out.println(data);
 		}
 
-	}
+		
+		
+		}
 
 }
+
+
+

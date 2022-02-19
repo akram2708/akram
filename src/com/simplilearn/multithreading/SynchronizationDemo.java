@@ -28,8 +28,9 @@ class MyThread2 implements Runnable {
 
 class Table {
 
-	public synchronized void printTable(int n) {
+	public  void printTable(int n) {
 		
+		synchronized(this) {
 			for (int i = 1; i <= 5; i++) {
 				System.out.println(n * i);
 
@@ -38,23 +39,18 @@ class Table {
 				} catch (Exception e) {
 				}
 			}
+		}
 	}
-
 }
 
 public class SynchronizationDemo {
 
 	public static void main(String[] args) throws InterruptedException {
 		Table t = new Table();
-
 		Thread t1 = new Thread(new MyThread1(t));
-
 		Thread t2 = new Thread(new MyThread2(t));
-
 		t1.start();
-		
 		t2.start();
-
 	}
 
 }
